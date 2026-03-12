@@ -1,0 +1,48 @@
+{
+  "strategies": [
+    {
+      "id": "low_risk",
+      "name": "Low Risk Portfolio",
+      "description": "Avoid high-risk personality profiles",
+      "filters": {
+        "max_risk_score": 0.25,
+        "min_organizational_justice": 0.3,
+        "max_moral_disengagement": 0.3
+      }
+    },
+    {
+      "id": "high_growth",
+      "name": "High Growth Portfolio",
+      "description": "Companies with innovative, aggressive profiles",
+      "filters": {
+        "min_innovation": 0.4,
+        "min_achievement": 0.4,
+        "max_risk_score": 0.5
+      }
+    },
+    {
+      "id": "ethical",
+      "name": "Ethical Focus Portfolio",
+      "description": "Companies with strong ethical leadership",
+      "filters": {
+        "min_ethical_leadership": 0.4,
+        "min_organizational_justice": 0.4,
+        "min_empathy": 0.3
+      }
+    }
+  ],
+  "backtest_periods": [
+    {
+      "name": "1 Year",
+      "quarters": 4
+    },
+    {
+      "name": "3 Years",
+      "quarters": 12
+    },
+    {
+      "name": "5 Years",
+      "quarters": 20
+    }
+  ]
+}
