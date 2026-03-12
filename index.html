@@ -1489,7 +1489,7 @@ let compareRadarInstance = null;
 const COLORS = ['#2d2d2d','#c0392b','#2980b9','#27ae60','#8e44ad','#d4a017'];
 
 // Load main dashboard data
-fetch('dashboard_data.json').then(r=>r.json()).then(d=>{
+fetch('dashboard_data.json').then(r=>r.json()).then(d=>{ console.log('Loaded', d.firms.length, 'companies');
   DATA = d;
   TEMPORAL_DATA = null; // Will be loaded on demand
   buildTables();
