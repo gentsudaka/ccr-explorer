@@ -1489,10 +1489,22 @@ let compareRadarInstance = null;
 const COLORS = ['#2d2d2d','#c0392b','#2980b9','#27ae60','#8e44ad','#d4a017'];
 
 // Load main dashboard data
-fetch('dashboard_data.json').then(r=>r.json()).then(d=>{ console.log('Loaded', d.firms.length, 'companies');
-  DATA = d;
+fetch('dashboard_data.json')
+    .then(r => {
+        if (!r.ok) throw new Error('Network response was not ok');
+        return r.json();
+    })
+    .then(d => {
+        console.log('Loaded', d.firms.length, 'companies');
+        DATA = d;
+        console.log('DATA set:', DATA ? 'YES' : 'NO');
+        buildTables();
+    })
+    .catch(e => {
+        console.error('Error loading data:', e);
+        document.body.innerHTML = '<h1>Error loading data</h1><pre>' + e + '</pre>';
+    });
   TEMPORAL_DATA = null; // Will be loaded on demand
-  buildTables();
   updateStats();
 });
 
