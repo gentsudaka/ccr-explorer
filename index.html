@@ -32,21 +32,50 @@
   nav {
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px 40px;
+    padding: 18px 40px 14px;
     display: flex;
-    gap: 24px;
-    align-items: center;
+    flex-direction: column;
+    gap: 14px;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(250, 249, 247, 0.96);
+    backdrop-filter: blur(8px);
+  }
+  .nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
   nav .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
-  nav a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 0.15s;
+  .nav-controls { display: flex; align-items: center; gap: 8px; }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
   }
-  nav a:hover, nav a.active { color: var(--text); }
+  .nav-link {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-link:hover { color: var(--text); border-color: var(--accent-light); }
+  .nav-link.active { color: white; background: var(--accent); border-color: var(--accent); }
 
   /* Hero */
   .hero {
@@ -283,25 +312,39 @@
     .card-grid { grid-template-columns: 1fr; }
     .search-section, .firm-detail, .compare-view, .page { padding: 20px; }
     .dim-bar .dim-label { width: 110px; font-size: 0.72rem; }
-    nav { padding: 16px 20px; gap: 16px; }
+    nav { padding: 16px 20px 12px; gap: 12px; }
+    .nav-top { align-items: flex-start; }
+    .nav-links {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-link { padding: 8px 11px; font-size: 0.82rem; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="logo">Prism API</span>
-  <span style="margin-left:auto;display:flex;gap:4px;font-size:0.8rem">
-    <button onclick="setLang('en')" id="langEn" class="dim-tab active" style="margin:0;padding:3px 10px">EN</button>
-    <button onclick="setLang('ja')" id="langJa" class="dim-tab" style="margin:0;padding:3px 10px">日本語</button>
-  </span>
-  <a onclick="showHome()" class="active" id="navHome">Explorer</a>
-  <a onclick="showPage('top100')" id="navTop100">Top 100 Risk</a>
-  <a onclick="showPage('prosecuted')" id="navPros">Prosecuted</a>
-  <a onclick="showPage('clean')" id="navClean">Clean</a>
-  <a onclick="showPage('predictors')" id="navPredictors">Predictors</a>
-  <a onclick="showPage('performance')" id="navPerformance">Performance</a>
-  <a onclick="showPage('faq')" id="navFaq">FAQ</a>
+  <div class="nav-top">
+    <span class="logo">Prism API</span>
+    <div class="nav-controls">
+      <button onclick="setLang('en')" id="langEn" class="dim-tab active" style="margin:0;padding:3px 10px" type="button">EN</button>
+      <button onclick="setLang('ja')" id="langJa" class="dim-tab" style="margin:0;padding:3px 10px" type="button">日本語</button>
+    </div>
+  </div>
+  <div class="nav-links" aria-label="Primary">
+    <button type="button" onclick="showHome()" class="nav-link active" id="navHome">Explorer</button>
+    <button type="button" onclick="showPage('top100')" class="nav-link" id="navTop100">Top 100 Risk</button>
+    <button type="button" onclick="showPage('prosecuted')" class="nav-link" id="navPros">Prosecuted</button>
+    <button type="button" onclick="showPage('clean')" class="nav-link" id="navClean">Clean</button>
+    <button type="button" onclick="showPage('predictors')" class="nav-link" id="navPredictors">Predictors</button>
+    <button type="button" onclick="showPage('performance')" class="nav-link" id="navPerformance">Performance</button>
+    <button type="button" onclick="showPage('faq')" class="nav-link" id="navFaq">FAQ</button>
+  </div>
 </nav>
 
 <div id="homeView">
@@ -700,10 +743,12 @@ function showCompare() {
 }
 
 function hideAll() {
-  ['homeView','firmDetail','compareView','page-top100','page-prosecuted','page-clean'].forEach(id=>{
+  ['homeView','firmDetail','compareView'].forEach(id=>{
     const e=document.getElementById(id); if(e) e.style.display='none';
   });
-  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(e=>{ e.style.display='none'; });
+  if (ac) ac.style.display='none';
+  document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
 }
 
 function setLang(lang) {
