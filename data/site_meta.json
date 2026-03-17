@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-03-17T07:11:11.945403+00:00",
+  "site_firms_total": 2260,
+  "firms_with_timeline": 482,
+  "timeline_points_total": 42237,
+  "coverage_start": "2000-FY",
+  "coverage_end": "2026-FY",
+  "model_fit": {
+    "train_n": 482,
+    "alpha": 10.0,
+    "r2": 0.5574,
+    "corr": 0.7619,
+    "mae": 0.0673
+  },
+  "note": "Historical company timelines are anchored to the live explorer score using a cross-sectional fit on the latest overlapping company profiles."
+}

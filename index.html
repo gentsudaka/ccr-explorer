@@ -175,20 +175,90 @@
   .risk-low { background: #d4edda; color: var(--risk-low); }
   .badge-doj { background: #fde8e8; color: var(--risk-high); margin-left: 6px; }
 
+  /* Longitudinal overview */
+  .meta-strip {
+    max-width: 960px;
+    margin: 0 auto 18px;
+    padding: 0 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .meta-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .meta-chip strong { color: var(--text); }
+  .overview-proof {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 26px;
+  }
+  .proof-header { margin-bottom: 14px; }
+  .proof-kicker {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .proof-header h2 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .proof-sub {
+    color: var(--text-muted);
+    max-width: 700px;
+    font-size: 0.92rem;
+  }
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 18px;
+  }
+  .proof-note {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
   /* Tables */
   .page { max-width: 960px; margin: 0 auto; padding: 40px; display: none; }
   .page h2 { font-size: 1.6rem; font-weight: 300; margin-bottom: 6px; }
   .page h2 strong { font-weight: 600; }
   .page .page-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .table-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .table-wrap table { min-width: 820px; }
   thead th { text-align: left; padding: 12px 16px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border); background: var(--bg); }
-  tbody td { padding: 10px 16px; border-bottom: 1px solid var(--accent-light); font-size: 0.88rem; }
+  tbody td { padding: 10px 16px; border-bottom: 1px solid var(--accent-light); font-size: 0.88rem; vertical-align: top; }
   tbody tr { cursor: pointer; transition: background 0.1s; }
   tbody tr:hover { background: var(--bg); }
   .rank-col { width: 40px; color: var(--text-muted); }
   .risk-bar-cell { width: 120px; }
   .risk-bar-track { width: 80px; height: 5px; background: var(--accent-light); border-radius: 3px; display: inline-block; vertical-align: middle; margin-right: 8px; }
   .risk-bar-fill { height: 100%; border-radius: 3px; }
+  .delta-pill, .period-pill {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .delta-pill.up { background: #fde8e8; color: var(--risk-high); }
+  .delta-pill.down { background: #d4edda; color: var(--risk-low); }
+  .delta-pill.flat { background: #f3efe9; color: var(--text-muted); }
+  .delta-pill.missing, .period-pill { background: #f6f4f1; color: var(--text-muted); }
+  .table-subtle { color: var(--text-muted); font-size: 0.76rem; display: block; margin-top: 4px; }
 
   /* Compare bar */
   .compare-bar { max-width: 960px; margin: 0 auto; padding: 0 40px; display: none; }
@@ -214,6 +284,54 @@
   .card h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 14px; }
   .card.full-width { grid-column: 1 / -1; }
   .radar-container { max-width: 360px; margin: 0 auto; }
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .timeline-sub {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    max-width: 520px;
+  }
+  .timeline-chart-wrap {
+    position: relative;
+    height: 320px;
+  }
+  .timeline-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .timeline-metric {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+  }
+  .timeline-metric .metric-label {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .timeline-metric .metric-value {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .timeline-empty {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: #fcfbf9;
+  }
 
   .dim-bar { display: flex; align-items: center; margin-bottom: 6px; font-size: 0.82rem; }
   .dim-bar .dim-label { width: 170px; flex-shrink: 0; color: var(--text-muted); text-align: right; padding-right: 10px; }
@@ -360,7 +478,10 @@
     .cta-btn { width: 100%; }
     .hero .stats { grid-template-columns: 1fr; }
     .card-grid { grid-template-columns: 1fr; }
-    .search-section, .firm-detail, .compare-view, .page { padding: 20px; }
+    .timeline-metrics { grid-template-columns: 1fr 1fr; }
+    .timeline-chart-wrap { height: 260px; }
+    .search-section, .overview-proof, .firm-detail, .compare-view, .page { padding: 20px; }
+    .meta-strip { padding: 0 20px; }
     .search-card { padding: 16px; }
     .dim-bar .dim-label { width: 110px; font-size: 0.72rem; }
     nav { padding: 16px 20px 12px; gap: 12px; }
@@ -415,6 +536,20 @@
     </div>
   </div>
 
+  <div class="meta-strip" id="metaStrip" style="display:none"></div>
+
+  <div class="overview-proof" id="overviewProof" style="display:none">
+    <div class="proof-header">
+      <p class="proof-kicker" id="overviewKicker">Longitudinal signal</p>
+      <h2 id="overviewTitle">The psychometric signal separates around DOJ events</h2>
+      <p class="proof-sub" id="overviewSub">Event-time average of the CCR composite from 8 quarters before to 4 quarters after the DOJ event window.</p>
+    </div>
+    <div class="proof-card">
+      <canvas id="overviewChart"></canvas>
+    </div>
+    <p class="proof-note" id="overviewNote">Event time is shown in quarters relative to the DOJ event.</p>
+  </div>
+
   <div class="search-section">
     <div class="search-card">
       <div class="search-meta">
@@ -442,19 +577,19 @@
 <div class="page" id="page-top100">
   <h2><strong>Risk</strong> Screen</h2>
   <p class="page-sub">Ranked list of companies with the strongest Prism risk signal</p>
-  <table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th><th>DOJ</th></tr></thead><tbody id="top100Body"></tbody></table>
+  <div class="table-wrap"><table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th><th>1Y Δ</th><th>3Y Δ</th><th>Latest</th><th>DOJ</th></tr></thead><tbody id="top100Body"></tbody></table></div>
 </div>
 
 <div class="page" id="page-prosecuted">
   <h2><strong>Prosecuted</strong> Cases</h2>
   <p class="page-sub">DOJ-prosecuted companies ranked by Prism risk signal</p>
-  <table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th></tr></thead><tbody id="prosBody"></tbody></table>
+  <div class="table-wrap"><table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th><th>1Y Δ</th><th>3Y Δ</th><th>Latest</th></tr></thead><tbody id="prosBody"></tbody></table></div>
 </div>
 
 <div class="page" id="page-clean">
   <h2><strong>Watchlist</strong></h2>
   <p class="page-sub">High-signal companies without DOJ prosecution on record</p>
-  <table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th></tr></thead><tbody id="cleanBody"></tbody></table>
+  <div class="table-wrap"><table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th><th>1Y Δ</th><th>3Y Δ</th><th>Latest</th></tr></thead><tbody id="cleanBody"></tbody></table></div>
 </div>
 
 <div class="page" id="page-predictors">
@@ -555,9 +690,28 @@ const T = {
     perfSub: 'How Prism dimensions relate to Tobin\'s Q and ROA across public companies.',
     faqTitle: '<strong>Method</strong>',
     faqSub: 'What Prism API measures, how it works, and where the limits are',
+    overviewKicker: 'Longitudinal signal',
+    overviewTitle: 'The psychometric signal separates around DOJ events',
+    overviewSub: 'Event-time average of the CCR composite from 8 quarters before to 4 quarters after the DOJ event window.',
+    overviewNote: 'Event time is shown in quarters relative to the DOJ event.',
+    overviewControls: 'Controls',
+    overviewCases: 'DOJ cases',
+    metaUpdated: 'Updated',
+    metaCoverage: 'Coverage',
+    metaLongitudinal: 'Longitudinal coverage',
+    metaPoints: 'Timeline points',
     riskScore: 'Risk Score', back: '← Back', compare: 'Compare', addCompare: '+ Add to comparison',
     big5: 'Big Five Profile', financials: 'Financials', psychDims: 'Psychological Dimensions',
-    dataSources: 'Data Sources', comparison: 'Comparison',
+    dataSources: 'Data Sources', comparison: 'Comparison', compareTitle: 'Comparison',
+    riskTrajectory: 'Risk trajectory',
+    riskTrajectorySub: 'Historical signal path anchored to the current Prism score.',
+    timelineEmpty: 'Historical timeline not yet available for this ticker.',
+    timelineAnchored: 'Derived from published profile history and anchored to the live risk score.',
+    latestPeriodLabel: 'Latest period', periodsLabel: 'Periods', delta1yLabel: '1Y Δ', delta3yLabel: '3Y Δ',
+    trendRising: 'Rising', trendStable: 'Stable', trendFalling: 'Falling', trendUnavailable: 'No history',
+    dojYes: 'Yes', dojNo: 'No', dojProsecuted: 'DOJ Prosecuted', noDojCase: 'No DOJ Case',
+    docsLabel: 'documents', loadingTimeline: 'Loading historical signal…', noHistoryShort: 'No history',
+    maxCompare: 'Max 5', addAtLeast2: 'Add at least 2',
     perfMethod: '<strong>Method:</strong> We split 2,260 firms into quintiles (Q1=lowest, Q5=highest) on each psychological dimension and compare average Tobin\'s Q (market valuation relative to assets) and ROA (return on assets). The Q5−Q1 spread indicates whether firms scoring high on a dimension outperform those scoring low.',
     perfNote: 'Note: This is cross-sectional, not a backtest. Tobin\'s Q reflects market valuation premium; ROA reflects operational efficiency.',
     tqByQ: "Tobin's Q by Quintile", roaByQ: 'ROA by Quintile',
@@ -601,14 +755,33 @@ const T = {
     perfSub: 'Prism次元とトービンQ・ROAの関係を見る',
     faqTitle: '<strong>手法</strong>',
     faqSub: 'Prism APIが何を測り、どう機能し、どこに限界があるか',
+    overviewKicker: '時系列シグナル',
+    overviewTitle: 'DOJ事象の前後で心理シグナルがどう動くか',
+    overviewSub: 'CCR複合シグナルのイベント時点平均を、DOJ事象の8四半期前から4四半期後まで表示。',
+    overviewNote: '横軸はDOJ事象を基準にした四半期です。',
+    overviewControls: '対照群',
+    overviewCases: 'DOJ事例',
+    metaUpdated: '更新日',
+    metaCoverage: 'カバレッジ',
+    metaLongitudinal: '時系列カバレッジ',
+    metaPoints: '時系列点数',
     riskScore: 'リスクスコア', back: '← 戻る', compare: '比較', addCompare: '+ 比較に追加',
     big5: 'ビッグファイブ', financials: '財務データ', psychDims: '心理的次元',
-    dataSources: 'データソース', comparison: '比較',
+    dataSources: 'データソース', comparison: '比較', compareTitle: '比較',
+    riskTrajectory: 'リスク軌跡',
+    riskTrajectorySub: '現在のPrismスコアにアンカーした履歴シグナル。',
+    timelineEmpty: 'このティッカーには時系列履歴がまだありません。',
+    timelineAnchored: '公開済みプロファイル履歴から導出し、最新のライブリスクスコアに合わせてアンカーしています。',
+    latestPeriodLabel: '最新期', periodsLabel: '期間数', delta1yLabel: '1年差', delta3yLabel: '3年差',
+    trendRising: '上昇', trendStable: '横ばい', trendFalling: '低下', trendUnavailable: '履歴なし',
+    dojYes: 'あり', dojNo: 'なし', dojProsecuted: 'DOJ起訴あり', noDojCase: 'DOJ事例なし',
+    docsLabel: '文書', loadingTimeline: '履歴シグナルを読み込み中…', noHistoryShort: '履歴なし',
+    maxCompare: '最大5件', addAtLeast2: '2社以上追加してください',
     perfMethod: '<strong>方法：</strong>2,260社を各心理的次元で五分位（Q1=最低、Q5=最高）に分割し、トービンのQ（資産に対する市場評価）とROA（総資産利益率）の平均を比較。Q5−Q1のスプレッドが、高スコア企業の優位性を示す。',
     perfNote: '注：これは横断的分析であり、バックテストではありません。トービンのQは市場評価プレミアム、ROAは運営効率を反映。',
-    tqByQ: "五分位別トービンQ", roaByQ: '五分位別ROA',
+    tqByQ: '五分位別トービンQ', roaByQ: '五分位別ROA',
     faq1t: 'Prism APIとは？',
-    faq1: 'Prism APIは、Contextualized Construct Representations（CCR）を土台にした組織プロファイリング／分析レイヤーです。個人にアンケートを取る代わりに、PrismはCCRを使って組織を「合成的な参加者」として扱い、検証済みの心理学的尺度をテキストに適用します。結果として、ビッグファイブ、ダークトライアド、シュワルツの価値観、道徳基盤理論など50以上の次元にわたるプロファイルが得られます。<br><br>CCRは<a href=\"https://www.researchgate.net/publication/368985024\" target=\"_blank\">Atari, Omrani, & Dehghani (2024)</a>が開発した理論駆動型テキスト分析手法に基づいています。Prism APIはCCRを組織レベルへ拡張し、企業を「合成的な参加者」として扱うことで、組織プロファイリングと企業不正リスク分析に応用しています。',
+    faq1: 'Prism APIは、Contextualized Construct Representations（CCR）を土台にした組織プロファイリング／分析レイヤーです。個人にアンケートを取る代わりに、PrismはCCRを使って組織を「合成的な参加者」として扱い、検証済みの心理学的尺度をテキストに適用します。結果として、ビッグファイブ、ダークトライアド、シュワルツの価値観、道徳基盤理論など50以上の次元にわたるプロファイルが得られます。<br><br>CCRは<a href="https://www.researchgate.net/publication/368985024" target="_blank">Atari, Omrani, & Dehghani (2024)</a>が開発した理論駆動型テキスト分析手法に基づいています。Prism APIはCCRを組織レベルへ拡張し、企業を「合成的な参加者」として扱うことで、組織プロファイリングと企業不正リスク分析に応用しています。',
     faq2t: 'リスクスコアの算出方法は？',
     faq2: 'リスクスコアは、Prismの心理的次元と財務コントロール変数（企業規模、レバレッジ、ROA、トービンQ）を組み合わせたロジスティック回帰モデルによるDOJ刑事起訴の予測確率です。2,260社のLeave-One-Out交差検証でAUC=0.952を達成。主な予測因子は、組織のナルシシズム、達成志向、促進焦点、そして倫理リスク態度の逆転効果（「うちは倫理的」と強調する企業ほど実はリスクが高い）。財務コントロール変数は心理的シグナルを分離するために使用。',
     faq3t: 'データソースは？',
@@ -627,209 +800,483 @@ const T = {
 };
 
 let DATA = null;
+let LONGITUDINAL_SUMMARY = {};
+let SITE_META = null;
+let OVERVIEW_TS = null;
 let currentFirm = null;
 let compareList = [];
 let radarInstance = null;
 let compareRadarInstance = null;
+let overviewChartInstance = null;
+let timelineInstance = null;
+const TIMELINE_CACHE = new Map();
 const COLORS = ['#2d2d2d','#c0392b','#2980b9','#27ae60','#8e44ad','#d4a017'];
 
-fetch('dashboard_data.json').then(r=>r.json()).then(d=>{
-  DATA = d;
-  buildTables();
-});
+function fetchJson(url, fallback = null) {
+  return fetch(url).then(r => (r.ok ? r.json() : fallback)).catch(() => fallback);
+}
 
-// Search
-const searchInput = document.getElementById('searchInput');
-const ac = document.getElementById('autocomplete');
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
-searchInput.addEventListener('input', () => {
-  const q = searchInput.value.trim().toUpperCase();
-  if (!q || !DATA) { ac.style.display='none'; return; }
-  const matches = DATA.firms.filter(f =>
-    f.ticker.startsWith(q) || (f.company_name||'').toUpperCase().includes(q)
-  ).slice(0,12);
-  if (!matches.length) { ac.style.display='none'; return; }
-  ac.innerHTML = matches.map(f => {
-    const rc = f.risk_score>.7?'risk-high':f.risk_score>.3?'risk-med':'risk-low';
-    const doj = f.prosecuted?'<span class="badge badge-doj">DOJ</span>':'';
-    return `<div class="ac-item" onclick="selectFirm('${f.ticker}')">
-      <div class="left"><span class="ticker">${f.ticker}</span>${doj}<span class="name">${f.company_name||''} <span style="color:#aaa">— ${f.bio||''}</span></span></div>
-      <span class="badge ${rc}">${f.risk_score<0.001?'<0.1':((f.risk_score*100).toFixed(0))}%</span></div>`;
-  }).join('');
-  ac.style.display='block';
-});
-searchInput.addEventListener('keydown',e=>{ if(e.key==='Escape') ac.style.display='none'; });
-document.addEventListener('click',e=>{ if(!e.target.closest('.search-box')) ac.style.display='none'; });
+function getSummary(ticker) {
+  return LONGITUDINAL_SUMMARY[ticker] || {
+    ticker,
+    has_timeline: false,
+    delta_1y: null,
+    delta_3y: null,
+    latest_period: null,
+    first_period: null,
+    n_periods: 0,
+    trend: 'unavailable',
+  };
+}
+
+function riskColor(score) {
+  return score > 0.7 ? 'var(--risk-high)' : score > 0.3 ? 'var(--risk-med)' : 'var(--risk-low)';
+}
+
+function formatRisk(score, digits = 1) {
+  return `${(score * 100).toFixed(digits)}%`;
+}
+
+function deltaText(value) {
+  if (value == null || Number.isNaN(value)) return '—';
+  const pct = value * 100;
+  if (Math.abs(pct) < 0.05) return '0.0pp';
+  return `${pct > 0 ? '+' : ''}${pct.toFixed(1)}pp`;
+}
+
+function deltaClass(value) {
+  if (value == null || Number.isNaN(value)) return 'missing';
+  const pct = value * 100;
+  if (Math.abs(pct) < 1.0) return 'flat';
+  return pct > 0 ? 'up' : 'down';
+}
+
+function deltaPill(value) {
+  return `<span class="delta-pill ${deltaClass(value)}">${deltaText(value)}</span>`;
+}
+
+function latestPeriodCell(summary) {
+  const t = T[LANG];
+  if (!summary.has_timeline || !summary.latest_period) {
+    return `<span class="period-pill">${t.noHistoryShort}</span>`;
+  }
+  return `<span class="period-pill">${escapeHtml(summary.latest_period)}</span><span class="table-subtle">${summary.n_periods} ${escapeHtml(t.periodsLabel)}</span>`;
+}
+
+function companyCell(firm) {
+  const bio = firm.bio ? `<span class="table-subtle">${escapeHtml(firm.bio)}</span>` : '';
+  return `${escapeHtml(firm.company_name || '—')}${bio}`;
+}
+
+function metricCard(label, value) {
+  return `<div class="timeline-metric"><span class="metric-label">${escapeHtml(label)}</span><span class="metric-value">${escapeHtml(value)}</span></div>`;
+}
+
+function docsCount(firm) {
+  return firm.n_docs_x || firm.n_docs_y || '?';
+}
+
+function organsLabel(firm) {
+  if (!firm.organs) return 'N/A';
+  return firm.organs.split(',').map(s => s.trim().replace(/_/g, ' ')).join(' · ');
+}
+
+function fmtGroup(group) {
+  return group.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function loadExplorerData() {
+  Promise.all([
+    fetchJson('dashboard_data.json'),
+    fetchJson('data/company_summary.json', { tickers: {} }),
+    fetchJson('data/site_meta.json', null),
+    fetchJson('data/overview_timeseries.json', null),
+  ]).then(([data, summary, meta, overview]) => {
+    DATA = data;
+    LONGITUDINAL_SUMMARY = (summary && summary.tickers) || {};
+    SITE_META = meta;
+    OVERVIEW_TS = overview;
+    buildTables();
+    renderSiteMeta();
+    renderOverviewFigure();
+  });
+}
 
 function buildTables() {
-  const sorted = [...DATA.firms].sort((a,b)=>b.risk_score-a.risk_score);
+  if (!DATA) return;
+  const t = T[LANG];
+  const sorted = [...DATA.firms].sort((a, b) => b.risk_score - a.risk_score);
 
-  // Top 100
-  const top100 = sorted.slice(0,100);
-  document.getElementById('top100Body').innerHTML = top100.map((f,i) => {
-    const pct = (f.risk_score*100).toFixed(1);
-    const rc = f.risk_score>.7?'var(--risk-high)':f.risk_score>.3?'var(--risk-med)':'var(--risk-low)';
-    const doj = f.prosecuted?'<span class="badge badge-doj">Yes</span>':'<span style="color:#aaa">No</span>';
-    return `<tr onclick="selectFirm('${f.ticker}')"><td class="rank-col">${i+1}</td><td><strong>${f.ticker}</strong></td><td>${f.company_name||'—'}<br><span style="color:var(--text-muted);font-size:0.78rem">${f.bio||''}</span></td><td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${pct}%;background:${rc}"></span></span>${pct}%</td><td>${doj}</td></tr>`;
-  }).join('');
+  const makeRow = (firm, index, includeDoj) => {
+    const pct = (firm.risk_score * 100).toFixed(1);
+    const rc = riskColor(firm.risk_score);
+    const summary = getSummary(firm.ticker);
+    const doj = firm.prosecuted ? `<span class="badge badge-doj">${t.dojYes}</span>` : `<span style="color:#aaa">${t.dojNo}</span>`;
+    return `<tr onclick="selectFirm('${firm.ticker}')">
+      <td class="rank-col">${index + 1}</td>
+      <td><strong>${escapeHtml(firm.ticker)}</strong></td>
+      <td>${companyCell(firm)}</td>
+      <td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${pct}%;background:${rc}"></span></span>${pct}%</td>
+      <td>${deltaPill(summary.delta_1y)}</td>
+      <td>${deltaPill(summary.delta_3y)}</td>
+      <td>${latestPeriodCell(summary)}</td>
+      ${includeDoj ? `<td>${doj}</td>` : ''}
+    </tr>`;
+  };
 
-  // Prosecuted top 50
-  const pros = sorted.filter(f=>f.prosecuted).slice(0,50);
-  document.getElementById('prosBody').innerHTML = pros.map((f,i) => {
-    const pct = (f.risk_score*100).toFixed(1);
-    const rc = f.risk_score>.7?'var(--risk-high)':f.risk_score>.3?'var(--risk-med)':'var(--risk-low)';
-    return `<tr onclick="selectFirm('${f.ticker}')"><td class="rank-col">${i+1}</td><td><strong>${f.ticker}</strong></td><td>${f.company_name||'—'}<br><span style="color:var(--text-muted);font-size:0.78rem">${f.bio||''}</span></td><td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${pct}%;background:${rc}"></span></span>${pct}%</td></tr>`;
-  }).join('');
+  document.getElementById('top100Body').innerHTML = sorted.slice(0, 100).map((f, i) => makeRow(f, i, true)).join('');
+  document.getElementById('prosBody').innerHTML = sorted.filter(f => f.prosecuted).slice(0, 50).map((f, i) => makeRow(f, i, false)).join('');
+  document.getElementById('cleanBody').innerHTML = sorted.filter(f => !f.prosecuted).slice(0, 50).map((f, i) => makeRow(f, i, false)).join('');
+}
 
-  // Clean top 50
-  const clean = sorted.filter(f=>!f.prosecuted).slice(0,50);
-  document.getElementById('cleanBody').innerHTML = clean.map((f,i) => {
-    const pct = (f.risk_score*100).toFixed(1);
-    const rc = f.risk_score>.7?'var(--risk-high)':f.risk_score>.3?'var(--risk-med)':'var(--risk-low)';
-    return `<tr onclick="selectFirm('${f.ticker}')"><td class="rank-col">${i+1}</td><td><strong>${f.ticker}</strong></td><td>${f.company_name||'—'}<br><span style="color:var(--text-muted);font-size:0.78rem">${f.bio||''}</span></td><td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${pct}%;background:${rc}"></span></span>${pct}%</td></tr>`;
-  }).join('');
+function renderSiteMeta() {
+  const strip = document.getElementById('metaStrip');
+  if (!strip || !SITE_META) {
+    if (strip) strip.style.display = 'none';
+    return;
+  }
+  const t = T[LANG];
+  const updated = new Date(SITE_META.generated_at).toLocaleDateString(LANG === 'ja' ? 'ja-JP' : 'en-US', {
+    year: 'numeric', month: 'short', day: 'numeric'
+  });
+  strip.innerHTML = [
+    `<span class="meta-chip"><strong>${t.metaUpdated}:</strong> ${updated}</span>`,
+    `<span class="meta-chip"><strong>${t.metaCoverage}:</strong> ${escapeHtml(SITE_META.coverage_start || '—')} → ${escapeHtml(SITE_META.coverage_end || '—')}</span>`,
+    `<span class="meta-chip"><strong>${t.metaLongitudinal}:</strong> ${SITE_META.firms_with_timeline} / ${SITE_META.site_firms_total}</span>`,
+    `<span class="meta-chip"><strong>${t.metaPoints}:</strong> ${SITE_META.timeline_points_total.toLocaleString()}</span>`,
+  ].join('');
+  strip.style.display = 'flex';
+}
+
+function renderOverviewFigure() {
+  const wrap = document.getElementById('overviewProof');
+  if (!wrap || !OVERVIEW_TS) {
+    if (wrap) wrap.style.display = 'none';
+    return;
+  }
+  const t = T[LANG];
+  document.getElementById('overviewKicker').textContent = t.overviewKicker;
+  document.getElementById('overviewTitle').textContent = t.overviewTitle;
+  document.getElementById('overviewSub').textContent = t.overviewSub;
+  document.getElementById('overviewNote').textContent = t.overviewNote;
+  wrap.style.display = 'block';
+
+  if (overviewChartInstance) overviewChartInstance.destroy();
+  const ctx = document.getElementById('overviewChart').getContext('2d');
+  const controlSeries = OVERVIEW_TS.series.find(s => s.key === 'controls');
+  const caseSeries = OVERVIEW_TS.series.find(s => s.key === 'cases');
+  const allVals = [...controlSeries.values, ...caseSeries.values];
+  const minY = Math.min(...allVals) - 0.01;
+  const maxY = Math.max(...allVals) + 0.01;
+
+  overviewChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: OVERVIEW_TS.event_time_labels,
+      datasets: [
+        {
+          label: t.overviewControls,
+          data: controlSeries.values,
+          borderColor: '#999999',
+          backgroundColor: 'rgba(153,153,153,0.08)',
+          borderWidth: 2,
+          pointRadius: 3,
+          tension: 0.25,
+        },
+        {
+          label: t.overviewCases,
+          data: caseSeries.values,
+          borderColor: '#c0392b',
+          backgroundColor: 'rgba(192,57,43,0.08)',
+          borderWidth: 2,
+          pointRadius: 3,
+          tension: 0.25,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(3)}`
+          }
+        }
+      },
+      scales: {
+        y: {
+          min: minY,
+          max: maxY,
+          grid: { color: 'rgba(0,0,0,0.06)' },
+          ticks: { callback: value => Number(value).toFixed(3) }
+        },
+        x: {
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+function loadTimeline(ticker) {
+  if (TIMELINE_CACHE.has(ticker)) return Promise.resolve(TIMELINE_CACHE.get(ticker));
+  return fetchJson(`data/timelines/${encodeURIComponent(ticker)}.json`, null).then(data => {
+    TIMELINE_CACHE.set(ticker, data);
+    return data;
+  });
+}
+
+function renderTimelineChart(firm, timeline) {
+  const loading = document.getElementById('timelineLoading');
+  if (loading) {
+    if (typeof loading.remove === 'function') loading.remove();
+    else loading.style.display = 'none';
+  }
+  const canvas = document.getElementById('timelineChart');
+  if (!canvas || !timeline) return;
+  if (timelineInstance) timelineInstance.destroy();
+  const points = timeline.points || [];
+  const ctx = canvas.getContext('2d');
+  timelineInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: points.map(p => p.period_label),
+      datasets: [{
+        label: T[LANG].riskScore,
+        data: points.map(p => p.risk_signal * 100),
+        borderColor: riskColor(firm.risk_score),
+        backgroundColor: 'rgba(192,57,43,0.08)',
+        borderWidth: 2,
+        pointRadius: points.map(p => p.period_kind === 'annual_filing' ? 3.5 : 2),
+        pointHoverRadius: 4,
+        tension: 0.2,
+        fill: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`,
+            afterLabel: ctx => {
+              const p = points[ctx.dataIndex];
+              const src = (p.sources || []).join(', ');
+              return [`${T[LANG].docsLabel}: ${p.source_count || 0}`, src ? `Sources: ${src}` : ''];
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          suggestedMax: Math.max(100, ...points.map(p => p.risk_signal * 100 + 5)),
+          grid: { color: 'rgba(0,0,0,0.06)' },
+          ticks: { callback: value => `${value}%` }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { autoSkip: true, maxTicksLimit: 10 }
+        }
+      }
+    }
+  });
 }
 
 function selectFirm(ticker) {
-  const firm = DATA.firms.find(f=>f.ticker===ticker);
+  if (!DATA) return;
+  const firm = DATA.firms.find(f => f.ticker === ticker);
   if (!firm) return;
   currentFirm = firm;
-  ac.style.display='none';
-  searchInput.value='';
+  ac.style.display = 'none';
+  searchInput.value = '';
   hideAll();
+  const t = T[LANG];
+  const summary = getSummary(firm.ticker);
   const el = document.getElementById('firmDetail');
-  el.style.display='block';
+  el.style.display = 'block';
 
-  const pTag = firm.prosecuted?'<span class="prosecution-tag yes">DOJ Prosecuted</span>':'<span class="prosecution-tag no">No DOJ Case</span>';
+  if (radarInstance) radarInstance.destroy();
+  if (timelineInstance) timelineInstance.destroy();
+
+  const pTag = firm.prosecuted
+    ? `<span class="prosecution-tag yes">${t.dojProsecuted}</span>`
+    : `<span class="prosecution-tag no">${t.noDojCase}</span>`;
 
   el.innerHTML = `
-    <button class="back-btn" onclick="showHome()">← Back</button>
+    <button class="back-btn" onclick="showHome()">${t.back}</button>
     <div class="firm-header">
       <div>
-        <h2><strong>${firm.ticker}</strong>${pTag}</h2>
-        <div class="firm-meta">${firm.company_name||''} · ${firm.industry||''} · ${firm.n_docs_x||firm.n_docs_y||'?'} documents</div>
+        <h2><strong>${escapeHtml(firm.ticker)}</strong>${pTag}</h2>
+        <div class="firm-meta">${escapeHtml(firm.company_name || '')} · ${escapeHtml(firm.industry || '')} · ${docsCount(firm)} ${t.docsLabel}</div>
       </div>
       <div class="risk-meter">
-        <div class="score" style="color:${firm.risk_score>.7?'var(--risk-high)':firm.risk_score>.3?'var(--risk-med)':'var(--risk-low)'}">${(firm.risk_score*100).toFixed(1)}%</div>
-        <div class="label">Risk Score</div>
+        <div class="score" style="color:${riskColor(firm.risk_score)}">${formatRisk(firm.risk_score)}</div>
+        <div class="label">${t.riskScore}</div>
       </div>
     </div>
     <div class="card-grid">
-      <div class="card"><h3>Big Five Profile</h3><div class="radar-container"><canvas id="radarChart"></canvas></div></div>
-      <div class="card"><h3>Financials</h3><div class="fin-grid" id="finGrid"></div>
-        <div style="margin-top:16px"><h3 style="margin-bottom:6px">Data Sources</h3><div style="font-size:0.82rem;color:var(--text-muted)">${firm.organs?firm.organs.split(',').map(s=>s.trim().replace(/_/g,' ')).join(' · '):'N/A'}</div></div>
+      <div class="card full-width">
+        <div class="timeline-header">
+          <div>
+            <h3>${t.riskTrajectory}</h3>
+            <div class="timeline-sub">${t.riskTrajectorySub}</div>
+          </div>
+          ${summary.has_timeline ? `<span class="period-pill">${escapeHtml(summary.first_period)} → ${escapeHtml(summary.latest_period)}</span>` : ''}
+        </div>
+        ${summary.has_timeline ? `
+          <div class="timeline-metrics">
+            ${metricCard(t.latestPeriodLabel, summary.latest_period || '—')}
+            ${metricCard(t.periodsLabel, String(summary.n_periods || '—'))}
+            ${metricCard(t.delta1yLabel, deltaText(summary.delta_1y))}
+            ${metricCard(t.delta3yLabel, deltaText(summary.delta_3y))}
+          </div>
+          <div id="timelineLoading" class="timeline-empty">${t.loadingTimeline}</div>
+          <div class="timeline-chart-wrap"><canvas id="timelineChart"></canvas></div>
+          <div class="table-subtle">${t.timelineAnchored}</div>
+        ` : `<div class="timeline-empty">${t.timelineEmpty}</div>`}
       </div>
-      <div class="card full-width"><h3>Psychological Dimensions</h3><div class="dim-tabs" id="dimTabs"></div><div id="dimBars"></div></div>
+      <div class="card"><h3>${t.big5}</h3><div class="radar-container"><canvas id="radarChart"></canvas></div></div>
+      <div class="card"><h3>${t.financials}</h3><div class="fin-grid" id="finGrid"></div>
+        <div style="margin-top:16px"><h3 style="margin-bottom:6px">${t.dataSources}</h3><div style="font-size:0.82rem;color:var(--text-muted)">${escapeHtml(organsLabel(firm))}</div></div>
+      </div>
+      <div class="card full-width"><h3>${t.psychDims}</h3><div class="dim-tabs" id="dimTabs"></div><div id="dimBars"></div></div>
     </div>
-    <div style="text-align:center"><button class="add-compare-btn" onclick="addToCompare(currentFirm)">+ Add to comparison</button></div>
+    <div style="text-align:center"><button class="add-compare-btn" onclick="addToCompare(currentFirm)">${t.addCompare}</button></div>
   `;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Financials
   const fins = [
-    {l:'ROA', v:firm.roa!=null?(firm.roa*100).toFixed(1)+'%':'—'},
-    {l:'Leverage', v:firm.leverage!=null?firm.leverage.toFixed(2):'—'},
-    {l:"Tobin's Q", v:firm.tobins_q!=null?firm.tobins_q.toFixed(2):'—'},
-    {l:'Log Assets', v:firm.log_assets!=null?firm.log_assets.toFixed(1):'—'},
+    { l: 'ROA', v: firm.roa != null ? (firm.roa * 100).toFixed(1) + '%' : '—' },
+    { l: 'Leverage', v: firm.leverage != null ? firm.leverage.toFixed(2) : '—' },
+    { l: "Tobin's Q", v: firm.tobins_q != null ? firm.tobins_q.toFixed(2) : '—' },
+    { l: 'Log Assets', v: firm.log_assets != null ? firm.log_assets.toFixed(1) : '—' },
   ];
-  document.getElementById('finGrid').innerHTML = fins.map(f=>`<div class="fin-item"><span class="fin-val">${f.v}</span><span class="fin-label">${f.l}</span></div>`).join('');
+  document.getElementById('finGrid').innerHTML = fins.map(f => `<div class="fin-item"><span class="fin-val">${f.v}</span><span class="fin-label">${f.l}</span></div>`).join('');
 
-  // Radar
   const ctx = document.getElementById('radarChart').getContext('2d');
   const b5 = DATA.dim_groups.big5;
   radarInstance = new Chart(ctx, {
-    type:'radar',
-    data:{
-      labels: b5.map(d=>d.replace('Big5 ','')),
-      datasets:[{
-        data: b5.map(d=>firm[d]||0),
-        borderColor:'#2d2d2d', backgroundColor:'rgba(45,45,45,0.08)',
-        borderWidth:2, pointRadius:4, pointBackgroundColor:'#2d2d2d',
+    type: 'radar',
+    data: {
+      labels: b5.map(d => d.replace('Big5 ', '')),
+      datasets: [{
+        data: b5.map(d => firm[d] || 0),
+        borderColor: '#2d2d2d', backgroundColor: 'rgba(45,45,45,0.08)',
+        borderWidth: 2, pointRadius: 4, pointBackgroundColor: '#2d2d2d',
       }]
     },
-    options:{responsive:true, plugins:{legend:{display:false}}, scales:{r:{grid:{color:'rgba(0,0,0,0.06)'},angleLines:{color:'rgba(0,0,0,0.06)'},ticks:{display:false},pointLabels:{font:{size:12}}}}}
+    options: { responsive: true, plugins: { legend: { display: false } }, scales: { r: { grid: { color: 'rgba(0,0,0,0.06)' }, angleLines: { color: 'rgba(0,0,0,0.06)' }, ticks: { display: false }, pointLabels: { font: { size: 12 } } } } }
   });
 
-  // Dims
-  renderDimTabs('dimTabs','dimBars',[firm]);
+  renderDimTabs('dimTabs', 'dimBars', [firm]);
+  if (summary.has_timeline) {
+    loadTimeline(firm.ticker).then(timeline => renderTimelineChart(firm, timeline));
+  }
 }
 
 function renderDimTabs(tabId, barId, firms) {
   const groups = Object.keys(DATA.dim_groups);
-  const tickers = JSON.stringify(firms.map(f=>f.ticker));
-  document.getElementById(tabId).innerHTML = groups.map((g,i)=>
-    `<button class="dim-tab ${i===0?'active':''}" onclick="switchGroup('${tabId}','${barId}','${g}',this,${tickers.replace(/"/g,'&quot;')})">${fmtGroup(g)}</button>`
+  const tickers = JSON.stringify(firms.map(f => f.ticker));
+  document.getElementById(tabId).innerHTML = groups.map((g, i) =>
+    `<button class="dim-tab ${i === 0 ? 'active' : ''}" onclick="switchGroup('${tabId}','${barId}','${g}',this,${tickers.replace(/"/g, '&quot;')})">${fmtGroup(g)}</button>`
   ).join('');
   renderBars(barId, groups[0], firms);
 }
 
 function switchGroup(tabId, barId, group, btn, tickers) {
-  document.querySelectorAll('#'+tabId+' .dim-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('#' + tabId + ' .dim-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  renderBars(barId, group, tickers.map(t=>DATA.firms.find(f=>f.ticker===t)));
+  renderBars(barId, group, tickers.map(t => DATA.firms.find(f => f.ticker === t)));
 }
 
 function renderBars(containerId, group, firms) {
   const dims = DATA.dim_groups[group];
   document.getElementById(containerId).innerHTML = dims.map(dim => {
-    const label = dim.replace(/^(Big5|Dark Triad|Schwartz Values|Moral Foundations|Regulatory Focus|Dospert|Ocp|Empathy|Locus Of Control|Moral Disengagement|Social Dominance Orientation|Organizational Justice) ?/,'');
-    return firms.map((firm,fi) => {
-      const val = firm[dim]||0;
-      const pct = Math.min(Math.max((val+0.5)/1.0*100,2),100);
-      const c = COLORS[fi%COLORS.length];
-      const pre = firms.length>1?`<span style="color:${c};font-weight:600">${firm.ticker}</span> `:'';
+    const label = dim.replace(/^(Big5|Dark Triad|Schwartz Values|Moral Foundations|Regulatory Focus|Dospert|Ocp|Empathy|Locus Of Control|Moral Disengagement|Social Dominance Orientation|Organizational Justice) ?/, '');
+    return firms.map((firm, fi) => {
+      const val = firm[dim] || 0;
+      const pct = Math.min(Math.max((val + 0.5) / 1.0 * 100, 2), 100);
+      const c = COLORS[fi % COLORS.length];
+      const pre = firms.length > 1 ? `<span style="color:${c};font-weight:600">${firm.ticker}</span> ` : '';
       return `<div class="dim-bar"><div class="dim-label">${pre}${label}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div><div class="dim-value">${val.toFixed(3)}</div></div>`;
     }).join('');
   }).join('');
 }
 
-function fmtGroup(g) { return g.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); }
-
 function addToCompare(firm) {
-  if (!firm||compareList.find(f=>f.ticker===firm.ticker)) return;
-  if (compareList.length>=5){alert('Max 5');return;}
+  if (!firm || compareList.find(f => f.ticker === firm.ticker)) return;
+  if (compareList.length >= 5) { alert(T[LANG].maxCompare); return; }
   compareList.push(firm);
   updateCompareBar();
 }
+
 function updateCompareBar() {
-  const bar=document.getElementById('compareBar');
-  if(compareList.length<1){bar.style.display='none';return;}
-  bar.style.display='block';
-  document.getElementById('compareChips').innerHTML=compareList.map((f,i)=>`<span class="chip" onclick="compareList.splice(${i},1);updateCompareBar()">${f.ticker}</span>`).join('');
+  const bar = document.getElementById('compareBar');
+  if (compareList.length < 1) { bar.style.display = 'none'; return; }
+  bar.style.display = 'block';
+  document.querySelector('#compareBar button').textContent = T[LANG].compare;
+  document.getElementById('compareChips').innerHTML = compareList.map((f, i) => `<span class="chip" onclick="compareList.splice(${i},1);updateCompareBar()">${f.ticker}</span>`).join('');
 }
+
 function showCompare() {
-  if(compareList.length<2){alert('Add at least 2');return;}
+  if (compareList.length < 2) { alert(T[LANG].addAtLeast2); return; }
   hideAll();
-  const el=document.getElementById('compareView');
-  el.style.display='block';
-  el.innerHTML=`<button class="back-btn" onclick="showHome()">← Back</button><h2>Comparison</h2><div class="dim-tabs" id="cmpDimTabs"></div><div class="compare-radar-container"><canvas id="compareRadar"></canvas></div><div id="cmpBars"></div>`;
+  const t = T[LANG];
+  const el = document.getElementById('compareView');
+  el.style.display = 'block';
+  el.innerHTML = `<button class="back-btn" onclick="showHome()">${t.back}</button><h2>${t.compareTitle}</h2><div class="dim-tabs" id="cmpDimTabs"></div><div class="compare-radar-container"><canvas id="compareRadar"></canvas></div><div id="cmpBars"></div>`;
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  
-  const ctx=document.getElementById('compareRadar').getContext('2d');
-  const b5=DATA.dim_groups.big5;
-  new Chart(ctx,{
-    type:'radar',
-    data:{labels:b5.map(d=>d.replace('Big5 ','')),datasets:compareList.map((f,i)=>({label:f.ticker,data:b5.map(d=>f[d]||0),borderColor:COLORS[i%COLORS.length],backgroundColor:'transparent',borderWidth:2,pointRadius:3,pointBackgroundColor:COLORS[i%COLORS.length]}))},
-    options:{responsive:true,plugins:{legend:{position:'top',labels:{font:{size:12}}}},scales:{r:{grid:{color:'rgba(0,0,0,0.06)'},angleLines:{color:'rgba(0,0,0,0.06)'},ticks:{display:false},pointLabels:{font:{size:12}}}}}
+
+  if (compareRadarInstance) compareRadarInstance.destroy();
+  const ctx = document.getElementById('compareRadar').getContext('2d');
+  const b5 = DATA.dim_groups.big5;
+  compareRadarInstance = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: b5.map(d => d.replace('Big5 ', '')),
+      datasets: compareList.map((f, i) => ({
+        label: f.ticker,
+        data: b5.map(d => f[d] || 0),
+        borderColor: COLORS[i % COLORS.length],
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: COLORS[i % COLORS.length]
+      }))
+    },
+    options: { responsive: true, plugins: { legend: { position: 'top', labels: { font: { size: 12 } } } }, scales: { r: { grid: { color: 'rgba(0,0,0,0.06)' }, angleLines: { color: 'rgba(0,0,0,0.06)' }, ticks: { display: false }, pointLabels: { font: { size: 12 } } } } }
   });
-  renderDimTabs('cmpDimTabs','cmpBars',compareList);
+  renderDimTabs('cmpDimTabs', 'cmpBars', compareList);
 }
 
 function hideAll() {
-  ['homeView','firmDetail','compareView'].forEach(id=>{
-    const e=document.getElementById(id); if(e) e.style.display='none';
+  ['homeView', 'firmDetail', 'compareView'].forEach(id => {
+    const e = document.getElementById(id); if (e) e.style.display = 'none';
   });
-  document.querySelectorAll('.page').forEach(e=>{ e.style.display='none'; });
-  if (ac) ac.style.display='none';
-  document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(e => { e.style.display = 'none'; });
+  if (ac) ac.style.display = 'none';
+  document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
 }
 
 function setLang(lang) {
   LANG = lang;
-  document.getElementById('langEn').classList.toggle('active', lang==='en');
-  document.getElementById('langJa').classList.toggle('active', lang==='ja');
+  document.getElementById('langEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langJa').classList.toggle('active', lang === 'ja');
   const t = T[lang];
-  // Nav
   document.getElementById('navHome').textContent = t.explorer;
   document.getElementById('navTop100').textContent = t.top100;
   document.getElementById('navPros').textContent = t.prosecuted;
@@ -837,7 +1284,6 @@ function setLang(lang) {
   document.getElementById('navPredictors').textContent = t.predictors;
   document.getElementById('navPerformance').textContent = t.performance;
   document.getElementById('navFaq').textContent = t.faq;
-  // Hero
   document.getElementById('heroEyebrow').textContent = t.heroEyebrow;
   document.querySelector('.hero h1').innerHTML = t.heroTitle;
   document.querySelector('.hero .subtitle').textContent = t.heroSub;
@@ -845,78 +1291,91 @@ function setLang(lang) {
   document.getElementById('ctaRisk').textContent = t.ctaRisk;
   document.getElementById('ctaMethod').textContent = t.ctaMethod;
   const stats = document.querySelectorAll('.stat-label');
-  if(stats.length>=3){stats[0].textContent=t.statCompanies;stats[1].textContent=t.statDims;stats[2].textContent=t.statAuc;}
-  // Search
+  if (stats.length >= 3) {
+    stats[0].textContent = t.statCompanies;
+    stats[1].textContent = t.statDims;
+    stats[2].textContent = t.statAuc;
+  }
   document.getElementById('searchLabel').textContent = t.searchLabel;
   document.getElementById('searchHint').textContent = t.searchHint;
   document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-  // Page titles
-  const setPage = (id,title,sub) => {
-    const p=document.getElementById('page-'+id);
-    if(p){const h=p.querySelector('h2');if(h)h.innerHTML=title;const s=p.querySelector('.page-sub');if(s)s.textContent=sub;}
+
+  const setPage = (id, title, sub) => {
+    const p = document.getElementById('page-' + id);
+    if (p) {
+      const h = p.querySelector('h2'); if (h) h.innerHTML = title;
+      const s = p.querySelector('.page-sub'); if (s) s.textContent = sub;
+    }
   };
-  setPage('top100',t.top100Title,t.top100Sub);
-  setPage('prosecuted',t.prosTitle,t.prosSub);
-  setPage('clean',t.cleanTitle,t.cleanSub);
-  setPage('predictors',t.predTitle,t.predSub);
-  setPage('performance',t.perfTitle,t.perfSub);
-  setPage('faq',t.faqTitle,t.faqSub);
-  // FAQ content
+  setPage('top100', t.top100Title, t.top100Sub);
+  setPage('prosecuted', t.prosTitle, t.prosSub);
+  setPage('clean', t.cleanTitle, t.cleanSub);
+  setPage('predictors', t.predTitle, t.predSub);
+  setPage('performance', t.perfTitle, t.perfSub);
+  setPage('faq', t.faqTitle, t.faqSub);
+
   const faqDiv = document.querySelector('#page-faq > div');
-  if(faqDiv) {
+  if (faqDiv) {
     const cards = faqDiv.querySelectorAll('.predictor-card');
-    const faqKeys = ['faq1','faq2','faq3','faq4','faq5','faq6','faq7','faq8'];
-    cards.forEach((card,i) => {
-      if(i < faqKeys.length) {
+    const faqKeys = ['faq1', 'faq2', 'faq3', 'faq4', 'faq5', 'faq6', 'faq7', 'faq8'];
+    cards.forEach((card, i) => {
+      if (i < faqKeys.length) {
         const h = card.querySelector('h3');
         const d = card.querySelector('.pred-desc');
-        if(h) h.textContent = t[faqKeys[i]+'t'];
-        if(d) d.innerHTML = t[faqKeys[i]];
+        if (h) h.textContent = t[faqKeys[i] + 't'];
+        if (d) d.innerHTML = t[faqKeys[i]];
       }
     });
   }
-  // Reset built pages so they rebuild in new lang
+
   document.getElementById('predictorsContent').innerHTML = '';
   document.getElementById('performanceContent').innerHTML = '';
+  renderSiteMeta();
+  renderOverviewFigure();
+  if (DATA) buildTables();
+  if (currentFirm && document.getElementById('firmDetail').style.display === 'block') selectFirm(currentFirm.ticker);
+  if (document.getElementById('compareView').style.display === 'block') showCompare();
+  updateCompareBar();
 }
 
 function showHome() {
   hideAll();
-  document.getElementById('homeView').style.display='block';
+  document.getElementById('homeView').style.display = 'block';
   document.getElementById('navHome').classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function showPage(id) {
   hideAll();
-  document.getElementById('page-'+id).style.display='block';
-  const navMap = {top100:'navTop100', prosecuted:'navPros', clean:'navClean', predictors:'navPredictors', performance:'navPerformance', faq:'navFaq'};
+  document.getElementById('page-' + id).style.display = 'block';
+  const navMap = { top100: 'navTop100', prosecuted: 'navPros', clean: 'navClean', predictors: 'navPredictors', performance: 'navPerformance', faq: 'navFaq' };
   const nav = document.getElementById(navMap[id]);
-  if(nav) nav.classList.add('active');
-  if(id==='predictors' && DATA) buildPredictors();
-  if(id==='performance' && DATA) buildPerformance();
+  if (nav) nav.classList.add('active');
+  if (id === 'predictors' && DATA) buildPredictors();
+  if (id === 'performance' && DATA) buildPerformance();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function buildPredictors() {
   const el = document.getElementById('predictorsContent');
-  if(el.innerHTML) return; // already built
+  if (el.innerHTML || !DATA) return;
   const preds = DATA.predictors || [];
   el.innerHTML = preds.map((p, i) => {
     const corrClass = p.correlation > 0 ? 'corr-pos' : 'corr-neg';
     const corrLabel = p.correlation > 0 ? '+' + p.correlation : p.correlation;
     const rows = p.top_companies.map((c, j) => {
       const doj = c.prosecuted ? '<span class="badge badge-doj">DOJ</span>' : '';
-      return `<tr onclick="selectFirm('${c.ticker}')"><td class="rank-col">${j+1}</td><td><strong>${c.ticker}</strong>${doj}</td><td>${c.company_name || ''}<br><span style="color:var(--text-muted);font-size:0.78rem">${c.bio||''}</span></td><td style="font-weight:600">${c.score.toFixed(3)}</td><td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${(c.risk_score*100).toFixed(0)}%;background:${c.risk_score>.7?'var(--risk-high)':c.risk_score>.3?'var(--risk-med)':'var(--risk-low)'}"></span></span>${(c.risk_score*100).toFixed(0)}%</td></tr>`;
+      return `<tr onclick="selectFirm('${c.ticker}')"><td class="rank-col">${j + 1}</td><td><strong>${c.ticker}</strong>${doj}</td><td>${escapeHtml(c.company_name || '')}<br><span style="color:var(--text-muted);font-size:0.78rem">${escapeHtml(c.bio || '')}</span></td><td style="font-weight:600">${c.score.toFixed(3)}</td><td class="risk-bar-cell"><span class="risk-bar-track"><span class="risk-bar-fill" style="width:${(c.risk_score * 100).toFixed(0)}%;background:${riskColor(c.risk_score)}"></span></span>${(c.risk_score * 100).toFixed(0)}%</td></tr>`;
     }).join('');
     return `<div class="predictor-card">
       <div class="pred-header">
         <div>
-          <h3>#${i+1} — ${LANG==='ja'&&p.dimension_ja?p.dimension_ja:p.dimension.replace(/^(Big5|Dark Triad|Schwartz Values|Moral Foundations|Regulatory Focus|Dospert|Empathy) ?/,'')}</h3>
-          <div class="pred-short">${LANG==='ja'&&p.short_description_ja?p.short_description_ja:p.short_description}</div>
+          <h3>#${i + 1} — ${LANG === 'ja' && p.dimension_ja ? p.dimension_ja : p.dimension.replace(/^(Big5|Dark Triad|Schwartz Values|Moral Foundations|Regulatory Focus|Dospert|Empathy) ?/, '')}</h3>
+          <div class="pred-short">${LANG === 'ja' && p.short_description_ja ? p.short_description_ja : p.short_description}</div>
         </div>
         <span class="corr-badge ${corrClass}">r = ${corrLabel}</span>
       </div>
-      <div class="pred-desc">${LANG==='ja'&&p.long_description_ja?p.long_description_ja:p.long_description}</div>
+      <div class="pred-desc">${LANG === 'ja' && p.long_description_ja ? p.long_description_ja : p.long_description}</div>
       <table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Score</th><th>Risk</th></tr></thead><tbody>${rows}</tbody></table>
     </div>`;
   }).join('');
@@ -924,49 +1383,66 @@ function buildPredictors() {
 
 function buildPerformance() {
   const el = document.getElementById('performanceContent');
-  if(el.innerHTML) return;
+  if (el.innerHTML || !DATA) return;
   const perfs = DATA.performance || [];
-  
   el.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px">
     <p style="font-size:0.9rem;line-height:1.6">${T[LANG].perfMethod}</p>
     <p style="font-size:0.85rem;color:var(--text-muted);margin-top:8px">${T[LANG].perfNote}</p>
-  </div>` +
-  perfs.map(p => {
-    const dimClean = p.dimension.replace(/^(Big5|Dark Triad|Schwartz Values|Dospert|Locus Of Control|Need For) ?/,'');
+  </div>` + perfs.map(p => {
+    const dimClean = p.dimension.replace(/^(Big5|Dark Triad|Schwartz Values|Dospert|Locus Of Control|Need For) ?/, '');
     const tqSpread = p.spread_tobins_q;
     const roaSpread = p.spread_roa;
     const tqColor = tqSpread > 0 ? 'var(--risk-low)' : 'var(--risk-high)';
     const roaColor = roaSpread > 0 ? 'var(--risk-low)' : 'var(--risk-high)';
-    
-    // Tobin's Q bars
     const maxTQ = Math.max(...p.quintiles.map(q => Math.abs(q.avg_tobins_q)));
     const tqBars = p.quintiles.map(q => {
       const h = Math.max((q.avg_tobins_q / maxTQ) * 100, 5);
       const color = q.label === 'Q5' ? 'var(--accent)' : q.label === 'Q1' ? '#999' : 'var(--accent-light)';
       return `<div class="quintile-bar-group"><span class="q-val">${q.avg_tobins_q.toFixed(2)}</span><div class="q-bar" style="height:${h}%;background:${color}"></div><span class="q-label">${q.label}</span></div>`;
     }).join('');
-    
-    // ROA bars
     const maxROA = Math.max(...p.quintiles.map(q => Math.abs(q.avg_roa)));
     const roaBars = p.quintiles.map(q => {
       const h = maxROA > 0 ? Math.max(((q.avg_roa + maxROA) / (2 * maxROA)) * 100, 5) : 50;
       const color = q.label === 'Q5' ? 'var(--accent)' : q.label === 'Q1' ? '#999' : 'var(--accent-light)';
-      return `<div class="quintile-bar-group"><span class="q-val">${(q.avg_roa*100).toFixed(1)}%</span><div class="q-bar" style="height:${h}%;background:${color}"></div><span class="q-label">${q.label}</span></div>`;
+      return `<div class="quintile-bar-group"><span class="q-val">${(q.avg_roa * 100).toFixed(1)}%</span><div class="q-bar" style="height:${h}%;background:${color}"></div><span class="q-label">${q.label}</span></div>`;
     }).join('');
-    
     return `<div class="perf-card">
       <h3>${dimClean}</h3>
-      <div class="perf-spread">Q5−Q1 spread: <strong style="color:${tqColor}">Tobin's Q ${tqSpread>0?'+':''}${tqSpread.toFixed(2)}</strong> · <strong style="color:${roaColor}">ROA ${roaSpread>0?'+':''}${(roaSpread*100).toFixed(1)}%</strong></div>
+      <div class="perf-spread">Q5−Q1 spread: <strong style="color:${tqColor}">Tobin's Q ${tqSpread > 0 ? '+' : ''}${tqSpread.toFixed(2)}</strong> · <strong style="color:${roaColor}">ROA ${roaSpread > 0 ? '+' : ''}${(roaSpread * 100).toFixed(1)}%</strong></div>
       <div class="perf-grid">
-        <div><div class="perf-metric-label">Tobin's Q by Quintile</div><div class="quintile-chart">${tqBars}</div></div>
-        <div><div class="perf-metric-label">ROA by Quintile</div><div class="quintile-chart">${roaBars}</div></div>
+        <div><div class="perf-metric-label">${T[LANG].tqByQ}</div><div class="quintile-chart">${tqBars}</div></div>
+        <div><div class="perf-metric-label">${T[LANG].roaByQ}</div><div class="quintile-chart">${roaBars}</div></div>
       </div>
     </div>`;
   }).join('');
 }
 
+const searchInput = document.getElementById('searchInput');
+const ac = document.getElementById('autocomplete');
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toUpperCase();
+  if (!q || !DATA) { ac.style.display = 'none'; return; }
+  const matches = DATA.firms.filter(f => f.ticker.startsWith(q) || (f.company_name || '').toUpperCase().includes(q)).slice(0, 12);
+  if (!matches.length) { ac.style.display = 'none'; return; }
+  ac.innerHTML = matches.map(f => {
+    const rc = f.risk_score > .7 ? 'risk-high' : f.risk_score > .3 ? 'risk-med' : 'risk-low';
+    const doj = f.prosecuted ? '<span class="badge badge-doj">DOJ</span>' : '';
+    const summary = getSummary(f.ticker);
+    const history = summary.has_timeline ? `<span class="table-subtle">${escapeHtml(summary.latest_period || '')}</span>` : '';
+    return `<div class="ac-item" onclick="selectFirm('${f.ticker}')">
+      <div class="left"><span class="ticker">${f.ticker}</span>${doj}<span class="name">${escapeHtml(f.company_name || '')} <span style="color:#aaa">— ${escapeHtml(f.bio || '')}</span>${history}</span></div>
+      <span class="badge ${rc}">${f.risk_score < 0.001 ? '<0.1' : ((f.risk_score * 100).toFixed(0))}%</span></div>`;
+  }).join('');
+  ac.style.display = 'block';
+});
+searchInput.addEventListener('keydown', e => { if (e.key === 'Escape') ac.style.display = 'none'; });
+document.addEventListener('click', e => { if (!e.target.closest('.search-box')) ac.style.display = 'none'; });
+
 setLang(LANG);
+loadExplorerData();
 </script>
+
 </body>
 </html>
 <!-- Tue Mar  3 03:06:35 CST 2026 -->
