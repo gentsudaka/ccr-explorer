@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CCR — Contextualized Construct Representations</title>
+<title>Prism API — Organizational Psychometrics and Risk Signals</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
   :root {
@@ -290,7 +290,7 @@
 <body>
 
 <nav>
-  <span class="logo">CCR</span>
+  <span class="logo">Prism API</span>
   <span style="margin-left:auto;display:flex;gap:4px;font-size:0.8rem">
     <button onclick="setLang('en')" id="langEn" class="dim-tab active" style="margin:0;padding:3px 10px">EN</button>
     <button onclick="setLang('ja')" id="langJa" class="dim-tab" style="margin:0;padding:3px 10px">日本語</button>
@@ -306,8 +306,8 @@
 
 <div id="homeView">
   <div class="hero" id="heroSection">
-    <h1><strong>CCR</strong> Explorer</h1>
-    <p class="subtitle">Mapping the psychological DNA of 2,260 publicly traded companies from their own words.</p>
+    <h1><strong>Prism</strong> API</h1>
+    <p class="subtitle">Organizational psychometrics and risk signals from public-company text.</p>
     <div class="stats">
       <div class="stat-item"><span class="stat-num">2,260</span><span class="stat-label">Companies</span></div>
       <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Psychological Dimensions</span></div>
@@ -335,7 +335,7 @@
 
 <div class="page" id="page-top100">
   <h2><strong>Top 100</strong> Highest Risk</h2>
-  <p class="page-sub">Companies ranked by CCR misconduct risk score</p>
+  <p class="page-sub">Companies ranked by Prism API misconduct risk score</p>
   <table><thead><tr><th class="rank-col">#</th><th>Ticker</th><th>Company</th><th>Risk</th><th>DOJ</th></tr></thead><tbody id="top100Body"></tbody></table>
 </div>
 
@@ -352,30 +352,30 @@
 </div>
 
 <div class="page" id="page-predictors">
-  <h2><strong>Top 7</strong> CCR Predictors of Misconduct Risk</h2>
+  <h2><strong>Top 7</strong> Prism API Predictors of Misconduct Risk</h2>
   <p class="page-sub">Psychological dimensions most strongly correlated with DOJ prosecution risk (N=2,260)</p>
   <div id="predictorsContent"></div>
 </div>
 
 <div class="page" id="page-performance">
-  <h2><strong>CCR × Performance</strong></h2>
-  <p class="page-sub">Do psychological profiles predict financial outperformance? Quintile analysis of Tobin's Q and ROA across CCR dimensions.</p>
+  <h2><strong>Prism API × Performance</strong></h2>
+  <p class="page-sub">Do psychological profiles predict financial outperformance? Quintile analysis of Tobin's Q and ROA across Prism dimensions.</p>
   <div id="performanceContent"></div>
 </div>
 
 <div class="page" id="page-faq">
   <h2><strong>FAQ</strong></h2>
-  <p class="page-sub">How CCR works, what it measures, and what it doesn't</p>
+  <p class="page-sub">How Prism API works, what it measures, and what it doesn't</p>
   <div style="max-width:720px">
 
   <div class="predictor-card">
-    <h3>What is CCR?</h3>
-    <div class="pred-desc">Contextualized Construct Representations (CCR) is a method for creating psychological profiles of organizations from their own public texts — earnings calls, SEC filings, annual reports. Instead of surveying individuals, CCR treats the organization as a "synthetic participant" and administers validated psychological instruments to its textual output. The result is a profile across 50+ psychological dimensions (Big Five personality, Dark Triad, Schwartz Values, Moral Foundations, etc.) that captures an organization's behavioral DNA.</div>
+    <h3>What is Prism API?</h3>
+    <div class="pred-desc">Prism API is a serving and analysis layer built on Contextualized Construct Representations (CCR), a method for creating psychological profiles of organizations from their own public texts — earnings calls, SEC filings, annual reports. Instead of surveying individuals, Prism uses CCR to treat the organization as a "synthetic participant" and administer validated psychometric instruments to its textual output. The result is a profile across 50+ psychological dimensions (Big Five personality, Dark Triad, Schwartz Values, Moral Foundations, etc.) that captures an organization's behavioral DNA.</div>
   </div>
 
   <div class="predictor-card">
     <h3>How are risk scores calculated?</h3>
-    <div class="pred-desc">Risk scores represent the predicted probability of DOJ criminal prosecution based on a logistic regression model combining CCR psychological dimensions with financial controls (firm size, leverage, ROA, Tobin's Q). The model was trained on historical DOJ prosecutions and validated using leave-one-out cross-validation across 2,260 firms, achieving an AUC of 0.952. Key predictors include organizational narcissism, achievement orientation, promotion focus, and an inverse relationship with ethical risk tolerance (firms that protest ethical purity most strongly are paradoxically higher risk). Financial controls — especially firm size (log assets) — are critical: DOJ disproportionately prosecutes large firms, so size is the strongest single predictor (d=+2.35).</div>
+    <div class="pred-desc">Risk scores represent the predicted probability of DOJ criminal prosecution based on a logistic regression model combining Prism psychometric dimensions with financial controls (firm size, leverage, ROA, Tobin's Q). The model was trained on historical DOJ prosecutions and validated using leave-one-out cross-validation across 2,260 firms, achieving an AUC of 0.952. Key predictors include organizational narcissism, achievement orientation, promotion focus, and an inverse relationship with ethical risk tolerance (firms that protest ethical purity most strongly are paradoxically higher risk). Financial controls — especially firm size (log assets) — are critical: DOJ disproportionately prosecutes large firms, so size is the strongest single predictor (d=+2.35).</div>
   </div>
 
   <div class="predictor-card">
@@ -383,12 +383,12 @@
     <div class="pred-desc">
       <strong>Organizational texts:</strong> SEC EDGAR filings (10-K, 10-Q, 8-K, proxy statements, earnings call transcripts). Each firm has multiple documents spanning 2018–2024.<br><br>
       <strong>Financial data:</strong> Compustat (S&P Capital IQ) — total assets, revenue, ROA, leverage, Tobin's Q, SIC codes. 2,263 of 2,275 firms successfully matched.<br><br>
-      <strong>Prosecution data:</strong> DOJ criminal prosecution records, cross-referenced with SEC AAER (Accounting and Auditing Enforcement Releases) for comparison. Notably, CCR predicts DOJ criminal cases (AUC=0.952) but not SEC accounting fraud (AUC=0.520) — because CCR measures organizational culture, not individual bookkeeping fraud.</div>
+      <strong>Prosecution data:</strong> DOJ criminal prosecution records, cross-referenced with SEC AAER (Accounting and Auditing Enforcement Releases) for comparison. Notably, Prism's CCR layer predicts DOJ criminal cases (AUC=0.952) but not SEC accounting fraud (AUC=0.520) — because it measures organizational culture, not individual bookkeeping fraud.</div>
   </div>
 
   <div class="predictor-card">
     <h3>What's the difference between DOJ and AAER?</h3>
-    <div class="pred-desc">DOJ (Department of Justice) criminal prosecutions target organizational misconduct — fraud, bribery, market manipulation, environmental crimes — that reflects company-wide culture and decision-making. AAERs (SEC Accounting and Auditing Enforcement Releases) target specific accounting irregularities, often by individual actors. CCR captures cultural signatures, so it predicts DOJ cases (which are cultural) but not AAERs (which are individual). This distinction is one of the key scientific findings: the method's specificity validates that it measures what it claims to measure.</div>
+    <div class="pred-desc">DOJ (Department of Justice) criminal prosecutions target organizational misconduct — fraud, bribery, market manipulation, environmental crimes — that reflects company-wide culture and decision-making. AAERs (SEC Accounting and Auditing Enforcement Releases) target specific accounting irregularities, often by individual actors. Prism's psychometric layer captures cultural signatures, so it predicts DOJ cases (which are cultural) but not AAERs (which are individual). This distinction is one of the key scientific findings: the method's specificity validates that it measures what it claims to measure.</div>
   </div>
 
   <div class="predictor-card">
@@ -397,15 +397,15 @@
   </div>
 
   <div class="predictor-card">
-    <h3>How does CCR generate psychological scores from text?</h3>
-    <div class="pred-desc">CCR uses large language models to simulate psychological measurement. For each dimension (e.g., Big Five Conscientiousness), a validated psychometric instrument is "administered" to the organization's text corpus. The LLM reads the organization's documents and responds to survey items as if it were the organization, producing scores on each dimension. This is analogous to how a psychologist might rate an individual after reading their extensive writings — but scaled and standardized. The method produces reliable, interpretable scores that correlate with real-world outcomes (prosecution, financial performance).</div>
+    <h3>How does Prism API generate psychological scores from text?</h3>
+    <div class="pred-desc">Prism API uses CCR to simulate psychological measurement. For each dimension (e.g., Big Five Conscientiousness), a validated psychometric instrument is "administered" to the organization's text corpus. The LLM reads the organization's documents and responds to survey items as if it were the organization, producing scores on each dimension. This is analogous to how a psychologist might rate an individual after reading their extensive writings — but scaled and standardized. The method produces reliable, interpretable scores that correlate with real-world outcomes (prosecution, financial performance).</div>
   </div>
 
   <div class="predictor-card">
     <h3>What are the limitations?</h3>
     <div class="pred-desc">
       <strong>Cross-sectional:</strong> Current scores reflect a snapshot, not a time series. Organizations change.<br><br>
-      <strong>Public texts only:</strong> CCR reads what companies choose to publish. Impression management is real — but detectable (see the "protest too much" effect in ethical risk tolerance).<br><br>
+      <strong>Public texts only:</strong> Prism reads what companies choose to publish. Impression management is real — but detectable (see the "protest too much" effect in ethical risk tolerance).<br><br>
       <strong>U.S.-centric:</strong> Current data covers U.S. publicly traded firms with SEC filings. Extension to international markets (via local regulatory filings) is in progress.<br><br>
       <strong>Not causal:</strong> High risk scores predict prosecution probability, not causation. Many factors beyond organizational psychology determine whether a firm is prosecuted.<br><br>
       <strong>Model assumptions:</strong> The logistic regression assumes linear relationships between predictors and log-odds of prosecution. Non-linear models may capture additional patterns.</div>
@@ -413,15 +413,15 @@
 
   <div class="predictor-card">
     <h3>Who built this?</h3>
-    <div class="pred-desc">CCR was developed by Gen Tsudaka at Columbia Business School (Michael Morris Lab) as part of ongoing research on organizational behavior prediction. The method builds on psychometric measurement theory, organizational psychology, and natural language processing. For academic inquiries: <a href="mailto:tsudaka@pm.me">tsudaka@pm.me</a> · <a href="https://orcid.org/0000-0002-8969-5763">ORCID</a></div>
+    <div class="pred-desc">Prism API was built by Gen Tsudaka at Columbia Business School (Michael Morris Lab) as part of ongoing research on organizational behavior prediction. The method builds on psychometric measurement theory, organizational psychology, and natural language processing. For academic inquiries: <a href="mailto:tsudaka@pm.me">tsudaka@pm.me</a> · <a href="https://orcid.org/0000-0002-8969-5763">ORCID</a></div>
   </div>
 
   </div>
 </div>
 
 <div class="footer">
-  <p>Gen Tsudaka · Columbia Business School · <a href="https://orcid.org/0000-0002-8969-5763">ORCID</a></p>
-  <p style="margin-top: 4px;">Contextualized Construct Representations: organizational texts → synthetic psychological profiles → behavioral prediction</p>
+  <p>Gen Tsudaka · Prism API · Columbia Business School · <a href="https://orcid.org/0000-0002-8969-5763">ORCID</a></p>
+  <p style="margin-top: 4px;">Prism API: public text → organizational profiles → behavioral risk signals</p>
 </div>
 
 <script>
@@ -430,86 +430,86 @@ const T = {
   en: {
     explorer: 'Explorer', top100: 'Top 100 Risk', prosecuted: 'Prosecuted', clean: 'Clean',
     predictors: 'Predictors', performance: 'Performance', faq: 'FAQ',
-    heroTitle: '<strong>CCR</strong> Explorer',
-    heroSub: 'Mapping the psychological DNA of 2,260 publicly traded companies from their own words.',
+    heroTitle: '<strong>Prism</strong> API',
+    heroSub: 'Organizational psychometrics and risk signals from public-company text.',
     statCompanies: 'Companies', statDims: 'Psychological Dimensions', statAuc: 'Prosecution AUC',
     searchPlaceholder: 'Search by ticker or company name...',
     top100Title: '<strong>Top 100</strong> Highest Risk',
-    top100Sub: 'Companies ranked by CCR misconduct risk score',
+    top100Sub: 'Companies ranked by Prism API misconduct risk score',
     prosTitle: '<strong>Top 50</strong> Prosecuted Companies',
     prosSub: 'DOJ-prosecuted companies ranked by risk score',
     cleanTitle: '<strong>Top 50</strong> Highest Risk — Not Prosecuted',
     cleanSub: 'Highest-risk companies without DOJ prosecution on record',
-    predTitle: '<strong>Top 7</strong> CCR Predictors of Misconduct Risk',
+    predTitle: '<strong>Top 7</strong> Prism API Predictors of Misconduct Risk',
     predSub: 'Psychological dimensions most strongly correlated with DOJ prosecution risk (N=2,260)',
-    perfTitle: '<strong>CCR × Performance</strong>',
-    perfSub: 'Do psychological profiles predict financial outperformance? Quintile analysis of Tobin\'s Q and ROA across CCR dimensions.',
+    perfTitle: '<strong>Prism API × Performance</strong>',
+    perfSub: 'Do organizational profiles predict financial outperformance? Quintile analysis of Tobin\'s Q and ROA across Prism dimensions.',
     faqTitle: '<strong>FAQ</strong>',
-    faqSub: 'How CCR works, what it measures, and what it doesn\'t',
+    faqSub: 'How Prism API works, what it measures, and what it doesn\'t',
     riskScore: 'Risk Score', back: '← Back', compare: 'Compare', addCompare: '+ Add to comparison',
     big5: 'Big Five Profile', financials: 'Financials', psychDims: 'Psychological Dimensions',
     dataSources: 'Data Sources', comparison: 'Comparison',
     perfMethod: '<strong>Method:</strong> We split 2,260 firms into quintiles (Q1=lowest, Q5=highest) on each psychological dimension and compare average Tobin\'s Q (market valuation relative to assets) and ROA (return on assets). The Q5−Q1 spread indicates whether firms scoring high on a dimension outperform those scoring low.',
     perfNote: 'Note: This is cross-sectional, not a backtest. Tobin\'s Q reflects market valuation premium; ROA reflects operational efficiency.',
     tqByQ: "Tobin's Q by Quintile", roaByQ: 'ROA by Quintile',
-    faq1t: 'What is CCR?',
-    faq1: 'Contextualized Construct Representations (CCR) is a method for creating psychological profiles of organizations from their own public texts — earnings calls, SEC filings, annual reports. Instead of surveying individuals, CCR treats the organization as a "synthetic participant" and administers validated psychological instruments to its textual output. The result is a profile across 50+ psychological dimensions (Big Five personality, Dark Triad, Schwartz Values, Moral Foundations, etc.) that captures an organization\'s behavioral DNA.<br><br>CCR was originally developed by <a href="https://www.researchgate.net/publication/368985024" target="_blank">Atari, Omrani, & Dehghani (2024)</a> as a theory-driven text analysis method using contextualized language models to simulate psychometric measurement. This explorer extends CCR to the organizational level — treating firms as synthetic participants rather than individuals — and applies it to corporate misconduct prediction.',
+    faq1t: 'What is Prism API?',
+    faq1: 'Prism API is a serving and analysis layer built on Contextualized Construct Representations (CCR), a method for creating psychological profiles of organizations from their own public texts — earnings calls, SEC filings, annual reports. Instead of surveying individuals, Prism uses CCR to treat the organization as a "synthetic participant" and administer validated psychometric instruments to its textual output. The result is a profile across 50+ psychological dimensions (Big Five personality, Dark Triad, Schwartz Values, Moral Foundations, etc.) that captures an organization\'s behavioral DNA.<br><br>CCR was originally developed by <a href="https://www.researchgate.net/publication/368985024" target="_blank">Atari, Omrani, & Dehghani (2024)</a> as a theory-driven text analysis method using contextualized language models to simulate psychometric measurement. Prism API extends CCR to the organizational level — treating firms as synthetic participants rather than individuals — and applies it to organizational profiling and corporate misconduct prediction.',
     faq2t: 'How are risk scores calculated?',
-    faq2: 'Risk scores represent the predicted probability of DOJ criminal prosecution based on a logistic regression model combining CCR psychological dimensions with financial controls (firm size, leverage, ROA, Tobin\'s Q). The model was trained on historical DOJ prosecutions and validated using leave-one-out cross-validation across 2,260 firms, achieving an AUC of 0.952. Key predictors include organizational narcissism, achievement orientation, promotion focus, and an inverse relationship with ethical risk tolerance (firms that protest ethical purity most strongly are paradoxically higher risk). Financial controls (firm size, leverage, ROA, Tobin\'s Q) are included to isolate the psychological signal.',
+    faq2: 'Risk scores represent the predicted probability of DOJ criminal prosecution based on a logistic regression model combining Prism psychometric dimensions with financial controls (firm size, leverage, ROA, Tobin\'s Q). The model was trained on historical DOJ prosecutions and validated using leave-one-out cross-validation across 2,260 firms, achieving an AUC of 0.952. Key predictors include organizational narcissism, achievement orientation, promotion focus, and an inverse relationship with ethical risk tolerance (firms that protest ethical purity most strongly are paradoxically higher risk). Financial controls (firm size, leverage, ROA, Tobin\'s Q) are included to isolate the psychological signal.',
     faq3t: 'What data sources are used?',
     faq3: '<strong>Organizational texts:</strong> SEC EDGAR filings (10-K, 10-Q, 8-K, proxy statements, earnings call transcripts). Each firm has multiple documents spanning 2018–2024.<br><br><strong>Financial data:</strong> Compustat (S&P Capital IQ) — total assets, revenue, ROA, leverage, Tobin\'s Q, SIC codes. 2,263 of 2,275 firms successfully matched.<br><br><strong>Prosecution data:</strong> DOJ criminal prosecution records, cross-referenced with SEC AAER (Accounting and Auditing Enforcement Releases) for comparison.',
     faq4t: 'What\'s the difference between DOJ and AAER?',
-    faq4: 'DOJ criminal prosecutions target organizational misconduct — fraud, bribery, market manipulation, environmental crimes — that reflects company-wide culture. AAERs target specific accounting irregularities, often by individual actors. CCR captures cultural signatures, so it predicts DOJ cases (AUC=0.952) but not AAERs (AUC=0.520). This specificity validates the method.',
+    faq4: 'DOJ criminal prosecutions target organizational misconduct — fraud, bribery, market manipulation, environmental crimes — that reflects company-wide culture. AAERs target specific accounting irregularities, often by individual actors. Prism's psychometric layer captures cultural signatures, so it predicts DOJ cases (AUC=0.952) but not AAERs (AUC=0.520). This specificity validates the method.',
     faq5t: 'Why do some "clean" companies have high risk scores?',
     faq5: 'A high risk score means the organization\'s psychological profile resembles firms that have been prosecuted — not that prosecution is imminent. These firms may have aggressive cultures that haven\'t (yet) crossed legal lines, or they may have engaged in misconduct that hasn\'t been detected.',
-    faq6t: 'How does CCR generate psychological scores from text?',
-    faq6: 'CCR uses large language models to simulate psychological measurement. For each dimension, a validated psychometric instrument is "administered" to the organization\'s text corpus. The LLM reads the documents and responds to survey items as if it were the organization, producing scores on each dimension.',
+    faq6t: 'How does Prism API generate psychological scores from text?',
+    faq6: 'Prism API uses CCR to simulate psychological measurement. For each dimension, a validated psychometric instrument is "administered" to the organization\'s text corpus. The LLM reads the documents and responds to survey items as if it were the organization, producing scores on each dimension.',
     faq7t: 'What are the limitations?',
-    faq7: '<strong>Cross-sectional:</strong> Current scores reflect a snapshot, not a time series.<br><br><strong>Public texts only:</strong> CCR reads what companies choose to publish. Impression management is real — but detectable.<br><br><strong>U.S.-centric:</strong> Current data covers U.S. publicly traded firms. International extension in progress.<br><br><strong>Not causal:</strong> Risk scores predict probability, not causation.',
+    faq7: '<strong>Cross-sectional:</strong> Current scores reflect a snapshot, not a time series.<br><br><strong>Public texts only:</strong> Prism reads what companies choose to publish. Impression management is real — but detectable.<br><br><strong>U.S.-centric:</strong> Current data covers U.S. publicly traded firms. International extension in progress.<br><br><strong>Not causal:</strong> Risk scores predict probability, not causation.',
     faq8t: 'Who built this?',
-    faq8: 'CCR was developed by Gen Tsudaka at Columbia Business School (Michael Morris Lab). The method builds on psychometric measurement theory, organizational psychology, and natural language processing.',
+    faq8: 'Prism API was built by Gen Tsudaka at Columbia Business School (Michael Morris Lab). The method builds on psychometric measurement theory, organizational psychology, and natural language processing.',
   },
   ja: {
     explorer: 'エクスプローラー', top100: 'リスクTop100', prosecuted: '起訴企業', clean: '未起訴',
     predictors: '予測因子', performance: 'パフォーマンス', faq: 'FAQ',
-    heroTitle: '<strong>CCR</strong> エクスプローラー',
-    heroSub: '2,260社の上場企業の公開テキストから「心理的DNA」をマッピング。',
+    heroTitle: '<strong>Prism</strong> API',
+    heroSub: '公開企業テキストから組織プロファイルと行動リスクを抽出。',
     statCompanies: '企業数', statDims: '心理的次元', statAuc: '起訴予測AUC',
     searchPlaceholder: 'ティッカーまたは企業名で検索...',
     top100Title: '<strong>リスクスコア</strong> Top 100',
-    top100Sub: 'CCR不正リスクスコアによるランキング',
+    top100Sub: 'Prism API不正リスクスコアによるランキング',
     prosTitle: '<strong>起訴企業</strong> Top 50',
     prosSub: 'DOJ起訴企業のリスクスコアランキング',
     cleanTitle: '<strong>未起訴</strong> 高リスクTop 50',
     cleanSub: 'DOJ起訴記録のない高リスク企業',
-    predTitle: '<strong>Top 7</strong> CCR不正リスク予測因子',
+    predTitle: '<strong>Top 7</strong> Prism API不正リスク予測因子',
     predSub: 'DOJ刑事起訴リスクとの相関が最も強い心理的次元（N=2,260）',
-    perfTitle: '<strong>CCR × パフォーマンス</strong>',
-    perfSub: '心理プロファイルは財務パフォーマンスを予測するか？CCR次元ごとのトービンQとROAの五分位分析。',
+    perfTitle: '<strong>Prism API × パフォーマンス</strong>',
+    perfSub: '組織プロファイルは財務パフォーマンスを予測するか？Prism次元ごとのトービンQとROAの五分位分析。',
     faqTitle: '<strong>FAQ</strong>',
-    faqSub: 'CCRの仕組み、測定対象、限界について',
+    faqSub: 'Prism APIの仕組み、測定対象、限界について',
     riskScore: 'リスクスコア', back: '← 戻る', compare: '比較', addCompare: '+ 比較に追加',
     big5: 'ビッグファイブ', financials: '財務データ', psychDims: '心理的次元',
     dataSources: 'データソース', comparison: '比較',
     perfMethod: '<strong>方法：</strong>2,260社を各心理的次元で五分位（Q1=最低、Q5=最高）に分割し、トービンのQ（資産に対する市場評価）とROA（総資産利益率）の平均を比較。Q5−Q1のスプレッドが、高スコア企業の優位性を示す。',
     perfNote: '注：これは横断的分析であり、バックテストではありません。トービンのQは市場評価プレミアム、ROAは運営効率を反映。',
     tqByQ: "五分位別トービンQ", roaByQ: '五分位別ROA',
-    faq1t: 'CCRとは？',
-    faq1: 'Contextualized Construct Representations（CCR）は、企業の公開テキスト（決算説明会、SEC提出書類、年次報告書）から組織の心理プロファイルを作成する手法です。個人にアンケートを取る代わりに、組織を「合成的な参加者」として扱い、検証済みの心理学的尺度をテキストに適用します。結果として、ビッグファイブ、ダークトライアド、シュワルツの価値観、道徳基盤理論など50以上の次元にわたるプロファイルが得られます。<br><br>CCRは<a href=\"https://www.researchgate.net/publication/368985024\" target=\"_blank\">Atari, Omrani, & Dehghani (2024)</a>が開発した理論駆動型テキスト分析手法に基づいています。本エクスプローラーはCCRを組織レベルに拡張し、企業を「合成的な参加者」として扱うことで、企業不正の予測に応用しています。',
+    faq1t: 'Prism APIとは？',
+    faq1: 'Prism APIは、Contextualized Construct Representations（CCR）を土台にした組織プロファイリング／分析レイヤーです。個人にアンケートを取る代わりに、PrismはCCRを使って組織を「合成的な参加者」として扱い、検証済みの心理学的尺度をテキストに適用します。結果として、ビッグファイブ、ダークトライアド、シュワルツの価値観、道徳基盤理論など50以上の次元にわたるプロファイルが得られます。<br><br>CCRは<a href=\"https://www.researchgate.net/publication/368985024\" target=\"_blank\">Atari, Omrani, & Dehghani (2024)</a>が開発した理論駆動型テキスト分析手法に基づいています。Prism APIはCCRを組織レベルへ拡張し、企業を「合成的な参加者」として扱うことで、組織プロファイリングと企業不正リスク分析に応用しています。',
     faq2t: 'リスクスコアの算出方法は？',
-    faq2: 'リスクスコアは、CCRの心理的次元と財務コントロール変数（企業規模、レバレッジ、ROA、トービンQ）を組み合わせたロジスティック回帰モデルによるDOJ刑事起訴の予測確率です。2,260社のLeave-One-Out交差検証でAUC=0.952を達成。主な予測因子は、組織のナルシシズム、達成志向、促進焦点、そして倫理リスク態度の逆転効果（「うちは倫理的」と強調する企業ほど実はリスクが高い）。財務コントロール変数は心理的シグナルを分離するために使用。',
+    faq2: 'リスクスコアは、Prismの心理的次元と財務コントロール変数（企業規模、レバレッジ、ROA、トービンQ）を組み合わせたロジスティック回帰モデルによるDOJ刑事起訴の予測確率です。2,260社のLeave-One-Out交差検証でAUC=0.952を達成。主な予測因子は、組織のナルシシズム、達成志向、促進焦点、そして倫理リスク態度の逆転効果（「うちは倫理的」と強調する企業ほど実はリスクが高い）。財務コントロール変数は心理的シグナルを分離するために使用。',
     faq3t: 'データソースは？',
     faq3: '<strong>組織テキスト：</strong>SEC EDGAR（10-K、10-Q、8-K、プロキシ、決算説明会トランスクリプト）。各社複数文書、2018〜2024年。<br><br><strong>財務データ：</strong>Compustat（S&P Capital IQ）——総資産、売上、ROA、レバレッジ、トービンQ、SICコード。2,275社中2,263社がマッチ。<br><br><strong>起訴データ：</strong>DOJ刑事起訴記録。SEC AAER（会計不正）と比較対照。',
     faq4t: 'DOJとAAERの違いは？',
-    faq4: 'DOJ刑事起訴は組織的な不正（詐欺、贈賄、市場操作、環境犯罪）を対象とし、企業文化を反映します。AAERは個人の会計不正を対象とします。CCRは文化的シグナルを捉えるため、DOJ（AUC=0.952）は予測できますが、AAER（AUC=0.520＝ランダム）は予測できません。この特異性が手法の妥当性を証明しています。',
+    faq4: 'DOJ刑事起訴は組織的な不正（詐欺、贈賄、市場操作、環境犯罪）を対象とし、企業文化を反映します。AAERは個人の会計不正を対象とします。Prismの心理プロファイル層は文化的シグナルを捉えるため、DOJ（AUC=0.952）は予測できますが、AAER（AUC=0.520＝ランダム）は予測できません。この特異性が手法の妥当性を証明しています。',
     faq5t: '「未起訴」企業のリスクスコアが高いのはなぜ？',
     faq5: 'リスクスコアが高いということは、その企業の心理プロファイルが過去に起訴された企業と類似していることを意味します。起訴が差し迫っているという意味ではありません。攻撃的な文化を持ちながらも法的線を超えていない、あるいは不正が未検出の可能性があります。',
-    faq6t: 'テキストから心理スコアをどう生成する？',
-    faq6: 'CCRは大規模言語モデル（LLM）を使って心理測定をシミュレートします。各次元について、検証済みの心理測定尺度を組織のテキストコーパスに「実施」します。LLMが文書を読み、その組織として調査項目に回答し、各次元のスコアを生成します。',
+    faq6t: 'Prism APIはテキストからどう心理スコアを生成する？',
+    faq6: 'Prism APIはCCRを使って心理測定をシミュレートします。各次元について、検証済みの心理測定尺度を組織のテキストコーパスに「実施」します。LLMが文書を読み、その組織として調査項目に回答し、各次元のスコアを生成します。',
     faq7t: '限界は？',
     faq7: '<strong>横断的：</strong>現在のスコアはスナップショットであり、時系列ではありません。<br><br><strong>公開テキストのみ：</strong>企業が公開を選択したテキストのみ。印象管理は存在しますが検出可能。<br><br><strong>米国中心：</strong>現在はSEC提出書類のある米国上場企業のみ。国際展開は進行中。<br><br><strong>因果関係ではない：</strong>リスクスコアは確率予測であり、因果関係ではありません。',
     faq8t: '誰が作った？',
-    faq8: 'CCRはコロンビア大学ビジネススクール（Michael Morris Lab）の津田賀玄が開発。心理測定理論、組織心理学、自然言語処理に基づく手法です。お問い合わせ：<a href="mailto:tsudaka@pm.me">tsudaka@pm.me</a>',
+    faq8: 'Prism APIはコロンビア大学ビジネススクール（Michael Morris Lab）の津田賀玄が構築。心理測定理論、組織心理学、自然言語処理に基づく手法です。お問い合わせ：<a href="mailto:tsudaka@pm.me">tsudaka@pm.me</a>',
   }
 };
 
